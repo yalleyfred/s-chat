@@ -44,12 +44,14 @@
 
     <div class="message-details">
       <div class="message-box">
-        <p>Message area</p>
+        <div *ngFor="let message of messages" class="message">
+          {{ message }}
+        </div>
       </div>
       <div class="message-text">
-        <textarea placeholder="Write some message"></textarea>
+        <input [(ngModel)]="newMessage" placeholder="Type a message..."/>
         <div>
-          <button class="submit-btn">
+          <button (click)="sendMessage()">
             <mat-icon>arrow_upward</mat-icon>
           </button>
         </div>
